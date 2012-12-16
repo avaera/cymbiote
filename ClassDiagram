@@ -1,0 +1,20 @@
+Basic Class Diagram
+-------------------
+
+Please bear in mind this is all subject to change!
+
+                                                                         .-- TelnetConnection
+                                                                        /
+                                              .-- NetworkInterface  <--:
+                                             /                          \
+    GameEngine  <----- InterfaceServer*  <--:                            '-- WebRequest
+                                             \
+        ^                                     '-- EventInterface  <--  AIAgent, Script, etc
+        |
+        |                             .--> WorldData?
+        |                            /
+         '-->  PersistenceServer* --:                  
+                                     \                   
+                                      '--> SocialData?
+         
+         
