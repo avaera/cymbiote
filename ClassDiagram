@@ -3,11 +3,11 @@ Basic Class Diagram
 
 Please bear in mind this is all subject to change!
 
-                                                                         .-- TelnetConnection
-                                                                        /
-                                              .-- NetworkInterface  <--:
-                                             /                          \
-    GameEngine  <----- InterfaceServer*  <--:                            '-- WebRequest
+                                                                         .-- TelnetInterface <--.
+                                                                        /                        \
+                                              .-- NetworkInterface  <--:                          :-- TCPConnection
+                                             /                          \                        /
+    GameEngine  <----- InterfaceServer*  <--:                            '---  WebInterface  <--'
                                              \
         ^                                     '-- EventInterface  <--  AIAgent, Script, etc
         |

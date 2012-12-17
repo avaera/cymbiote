@@ -21,5 +21,4 @@ It is intended that the following features will be added over time:
 License
 -------
 This software is licensed under the GNU General Public License (version 3).
-
 Please see COPYING for more details.

@@ -1,39 +1,26 @@
 /**
- * CymbioteServer.cpp - Initiates the main game engine and controls program execution.
+ * CymbioteServer.cpp - Initiates the main game engine and controls 
+ * program execution.
  *
  * Copyright 2012 Brett Richards
- * This software is licensed under the GNU General Public License v3. Please see COPYING for more details.
+ * This software is licensed under the GNU General Public License v3. 
+ * Please see COPYING for more details.
  *
  **/
 
-#include "CymbioteServer.h"
+#include "CymbioteServer.hpp"
 
 using namespace std;
 
 int main() {
 	
 	Cymbiote::GameEngine engine;
+	bool engine_result;
 	
-	// Initialise the game engine.
-	if ( !engine.init() ) {
-		
-		// Exit on error for now.
-		cout << "Unable to initialise game engine. Exiting." << endl;
-		return -1;
-		
-	}
-		
-	while ( engine.loop() ) {
-		
-		// Consider delay to avoid excessive CPU use
-		
-		// Statistics may also be gathered here
-		
-		// For now, just stop after one loop until we have actual logic.
-		engine.stop();
-	}
+	// Enter the main game logic loop
+	engine_result = engine.run();
 	
-	cout << "Cymbiote server shut down successfully." << endl;
+	cout << "\nCymbiote server shut down " << (engine_result ? "successfully." : "due to error.") << endl;
 	return 0;
 	
 }

@@ -1,11 +1,11 @@
 # Basic makefile to compile the Cymbiote MUD server in Linux
 
 # Include warnings
-CPPFLAGS += -Wall -g
+CPPFLAGS += -Wall -g -fPIC
+LIBS = -lboost_system -lboost_thread
 
 # Files to compile
 SOURCES = $(wildcard *.cpp)
-HEADERS = $(SOURCES:.cpp=.hpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
 .PHONY: all clean
@@ -13,7 +13,7 @@ OBJECTS = $(SOURCES:.cpp=.o)
 all: cymbiote-server
 
 cymbiote-server: $(OBJECTS)
-	$(LINK.cc) $(OBJECTS) -o cymbiote-server
+	$(LINK.cc) $(OBJECTS) $(LIBS) -o cymbiote-server
 
 clean:
 	@- $(RM) cymbiote-server
